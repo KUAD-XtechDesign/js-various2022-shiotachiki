@@ -25,7 +25,7 @@ h1 {
   font-size: 8rem;
   text-transform: uppercase;
   font-family: test;
-  color: #fff;
+  color: rgb(112, 99, 99);
   z-index: 10;
 }
 .magic {
