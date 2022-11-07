@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
-@import "compass/css3";
+/* @import "compass/css3"; */
 
 @font-face {
   src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/Anders.ttf');
@@ -11,15 +11,14 @@
 }
 html,body {
   font-size: 62.5%;
-  height: 100%;
-  overflow: hidden;
 }
 .scene {
-  position: relative;
-  height: 100%;
+  height: 60vh;
   background: #1d1f20;
   padding: 20rem;
   text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 h1 {
   position: relative;
@@ -50,9 +49,7 @@ h1 {
   color: #fff;
   font-family: test;
   
-  a {
-    color: rgba(255,170,170,1);
-  }
+
 }
 li{
   list-style: none;
@@ -63,7 +60,6 @@ img{
 }
 
 
-}
 
 #wave{
   width:60px;
@@ -107,7 +103,7 @@ body.three #backimg03{
 }
 
 #back{
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
@@ -137,3 +133,41 @@ img{
   height: 3px;
   background: linear-gradient(to right, blue,red);
 }
+
+
+.container{
+  position: relative;
+  padding: 40px 0;
+  background-color: rgb(253, 171, 104);
+}
+
+.slide{
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.slick-slide{
+  padding:20px;
+}
+
+
+.slick-dots li{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #333;
+  margin: 0 8px;
+}
+
+.slick-dots li.slick-active {
+  opacity: 1;
+  background-color: #fff;
+}
+
+.slick-dots li button,
+.slick-dots li button:before{
+  display: none;
+}
+
+
