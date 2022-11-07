@@ -108,7 +108,7 @@ body.three #backimg03{
   height: 100%;
   top: 0;
   left: 0;
-  background: #fcfcfc;
+  background: #e0d7d7;
 }
 
 .backimg{
@@ -142,7 +142,7 @@ img{
 }
 
 .slide{
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -162,7 +162,7 @@ img{
 
 .slick-dots li.slick-active {
   opacity: 1;
-  background-color: #fff;
+  background-color: rgb(49, 194, 211);
 }
 
 .slick-dots li button,
