@@ -133,7 +133,6 @@ img{
   height: 3px;
   background: linear-gradient(to right, blue,red);
 }
-@charset "utf-8";
 
 /*========= レイアウトのためのCSS ===============*/
 p{
