@@ -1,5 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+/* @import "compass/css3"; */
 
+@font-face {
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/Anders.ttf');
+  font-family: test;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+html,body {
+  font-size: 62.5%;
+}
+.scene {
+  height: 90vh;
+  background: #1d1f20;
+  padding: 20rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+h1 {
+  position: relative;
+  font-size: 8rem;
+  text-transform: uppercase;
+  font-family: test;
+  color: rgb(255, 157, 96);
+  z-index: 10;
+}
+.magic {
+  z-index: 5;
+  position: absolute;
+  top: calc(50% - 10rem);
+  left: calc(50% - 10rem);
+  width: 20rem;
+  height: 20rem;
+  background: url('../images/tea.webp') 50% 50% no-repeat fixed;
+  background-size: cover;
+  border-radius: 50%;
+}
+.check-out {
+  z-index: 100;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: rgb(255, 157, 96);
+  font-family: test;
+  
+
+}
 li{
   list-style: none;
 }
@@ -8,16 +59,7 @@ img{
   max-width: 100%;
 }
 
-header{
-  position: fixed;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  top: 0;
-}
+
 
 #wave{
   width:60px;
@@ -53,6 +95,7 @@ header{
   margin-bottom: 40px;
 }
 
+
 body.one #backimg01,
 body.two #backimg02,
 body.three #backimg03{
@@ -60,12 +103,12 @@ body.three #backimg03{
 }
 
 #back{
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background: #fcfcfc;
+  background: #e0d7d7;
 }
 
 .backimg{
@@ -90,3 +133,76 @@ img{
   height: 3px;
   background: linear-gradient(to right, blue,red);
 }
+
+/*========= レイアウトのためのCSS ===============*/
+p{
+  text-align: center;
+  margin: 20px 0;
+  font-size:1.5rem;
+}
+
+/*==================================================
+じわっ
+===================================*/
+
+.blur{
+  animation-name:blurAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes blurAnime{
+  from {
+  filter: blur(10px);
+  transform: scale(1.02);
+  opacity: 0;
+  }
+
+  to {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  }
+}
+ 
+.blurTrigger{
+    opacity: 0;
+}
+
+
+.container{
+  position: relative;
+  padding: 40px 0;
+  background-color: rgb(253, 171, 104);
+}
+
+.slide{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slick-slide{
+  padding:20px;
+}
+
+
+.slick-dots li{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgb(186, 173, 173);
+  margin: 0 8px;
+}
+
+.slick-dots li.slick-active {
+  opacity: 1;
+  background-color: rgb(229, 107, 30);
+}
+
+.slick-dots li button,
+.slick-dots li button:before{
+  display: none;
+}
+
+

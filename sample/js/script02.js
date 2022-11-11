@@ -1,52 +1,42 @@
 $(function(){
+  var $magic = $(".magic"),
+      magicWHalf = $magic.width() / 2;
+  $(document).on("mousemove", function(e) {
+    $magic.css({"left": e.pageX - magicWHalf, "top": e.pageY - magicWHalf});
+  });
 
-  let windowH
-  let documentH 
-  let documentW 
-  let scrollTop
-  let separate
-  let scrollRatio
-
-  //スクロールしたりウィンドウサイズを変えた時に実行
-  $(window).on("scroll resize load",function(){
-    windowH = $(this).height()//ウィンドウの高さ
-    documentH = $(document).height()//内容の高さ
-    documentW = $(document).width()//内容の幅
-    scrollTop = $(this).scrollTop()//何ピクセルスクロールしたか
-    scrollRatio = scrollTop/(documentH-windowH)//どれくらいスクロールされたか0から1
-    
-    separate = documentH / 3;//内容の高さを3分割した数値
-
-    //３分割した数値とどれだけスクロールしたかを比較→bodyにクラスをつける。あとはCSSファイルでデザイン変更
-    if(scrollTop < separate){
-      $("body").removeClass().addClass("one")
-    }else if(scrollTop < separate * 2){
-      $("body").removeClass().addClass("two")
-    }else{
-      $("body").removeClass().addClass("three")
+  $('.slide').slick(
+    {
+      dots:true,
+      arrows: false,
+      slidesToShow: 3,
+      infinite: true
     }
-
-    console.log(windowH,documentH,scrollTop)
-
-    $("#wave").css("background-position-x",scrollTop/10)//右上の背景画像の位置変更(CSS)
-    $("#line").css("width",scrollRatio * documentW)//グラデーションラインの幅変更(CSS)
-
-  })
-
-
-  //Menuボタンを押した時
-  $("#btn01").on("click",function(){
-    $("html, body").animate({scrollTop:0}, 1000, "swing");
-  })
-
-  $("#btn02").on("click",function(){
-    $("html, body").animate({scrollTop:separate*1}, 1000, "swing");
-  })
-
-  $("#btn03").on("click",function(){
-    $("html, body").animate({scrollTop:separate*2}, 1000, "swing");
-  })
-
+  )
 
 
 })
+// blurTriggerにblurというクラス名を付ける定義
+
+function BlurTextAnimeControl() {
+  $('.blurTrigger').each(function(){ //blurTriggerというクラス名が
+    var elemPos = $(this).offset().top-50;//要素より、50px上の
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight){
+    $(this).addClass('blur');// 画面内に入ったらblurというクラス名を追記
+    }else{
+    $(this).removeClass('blur');// 画面外に出たらblurというクラス名を外す
+    }
+    });
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  BlurTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+  BlurTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
